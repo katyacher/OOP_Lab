@@ -12,7 +12,6 @@ import java.util.Calendar;
  * @author kate
  */
 public class MainLab1 {
-
     /**
      * @param args the command line arguments
      */
@@ -28,7 +27,7 @@ public class MainLab1 {
                                             "П.И. Чайковсикй Романсы и песни");    
         
         Concert SimphoMusic = new Concert("Вечер симфонической музыки", 
-                                            new GregorianCalendar(2020,10,30, 19), 
+                                            new GregorianCalendar(2020,10,30,19), 
                                             "Л.В.Бетховен Симфония №9"); 
         
 
@@ -49,8 +48,7 @@ public class MainLab1 {
                                     + PianoMusic.getDateOfConcert().get(Calendar.YEAR) +  " м."
                                     + "Начало концерта в  " + SimphoMusic.getDateOfConcert().get(Calendar.HOUR_OF_DAY)
                                     +", в программе " + PianoMusic.getProgram());
-    }
-    
+   
      //Связывание объектов по ассоциациям классов
     ConcertHall Mkz = new ConcertHall("Малый концертный зал");
     ConcertHall Bkz = new ConcertHall("Большой концертный зал");
@@ -61,17 +59,14 @@ public class MainLab1 {
     Artist Art = new Artist("Денис", "Мацуев", "фортепиано", Mkz);//Создание объекта Art и связывание с объектом Mkz
     //Вывод информации по объекту Art и связанному с ним объекту группы
     
-    System.out.println("Артист " + Art.getName() + " " + Art.getSurname()+ " " + Art.getSpecialty()+
-                            + Art.getStConcertHall().getName());
+    System.out.println("Артист " + Art.getName() + " " + Art.getSurname()+ " " + Art.getSpecialty()+ Art.getStConcertHall().getName());
         
     System.out.println("Концерты Мкз:");
-        //Перебор всех объектов коллекции дисциплин в свойстве grDiscipline объекта Gr1
-        //и отображене для них наименования и объема
+        //Перебор всех объектов коллекции концертов в свойстве grConcert объекта Mkz
     Mkz.getConcertArray().forEach(Concert -> 
             System.out.println(Concert.getTitle() + " " + Concert.getDateOfConcert().get(Calendar.DAY_OF_MONTH) + " "+
-            + Concert.getDateOfConcert().get(Calendar.MONTH) + " "+ Concert.getDateOfConcert().get(Calendar.YEAR) + " "+
-            + SimphoMusic.getDateOfConcert().get(Calendar.HOUR_OF_DAY));
-    }
-
-    
+                                + Concert.getDateOfConcert().get(Calendar.MONTH)+ " "
+                                + Concert.getDateOfConcert().get(Calendar.YEAR) + " " 
+                                +Concert.getDateOfConcert().get(Calendar.HOUR_OF_DAY));
+    }      
 }
